@@ -1,1 +1,1 @@
-# Задача №2 - Тестовый режим
+# Задача №2 - Тестовый режим [![Build status](https://ci.appveyor.com/api/projects/status/580j1l1gl70vf9vb?svg=true)](https://ci.appveyor.com/project/AlekseyAlekseev/qa-testmode)

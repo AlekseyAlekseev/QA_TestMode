@@ -28,6 +28,7 @@ public class AuthTest {
         RegistrationDto info = DataGenerator
                 .Authorization
                 .generateInfo("en", "blocked");
+
         open("http://localhost:9999/");
         $("[data-test-id=login] input").setValue(info.getName());
         $("[data-test-id=password] input").setValue(info.getPassword());
@@ -41,6 +42,7 @@ public class AuthTest {
         RegistrationDto info = DataGenerator
                 .Authorization
                 .generateInfo("en", "active");
+
         open("http://localhost:9999/");
         $("[data-test-id=login] input").setValue("125151245124");
         $("[data-test-id=password] input").setValue(info.getPassword());
@@ -54,6 +56,7 @@ public class AuthTest {
         RegistrationDto info = DataGenerator
                 .Authorization
                 .generateInfo("en", "active");
+
         open("http://localhost:9999/");
         $("[data-test-id=login] input").setValue(info.getName());
         $("[data-test-id=password] input").setValue("dfdfgsgdasgqwrq24e2");

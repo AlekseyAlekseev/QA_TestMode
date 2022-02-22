@@ -1,6 +1,5 @@
 package ru.netology.web;
 
-import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
 import ru.netology.entities.RegistrationDto;
 import ru.netology.utils.DataGenerator;
@@ -52,8 +51,6 @@ public class AuthTest {
 
     @Test
     public void shouldInvalidPasswordAuth() {
-        Configuration.holdBrowserOpen = true;
-
         RegistrationDto info = DataGenerator
                 .Authorization
                 .generateInfo("en", "active");

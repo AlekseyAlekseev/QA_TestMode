@@ -1,5 +1,6 @@
 package ru.netology.web;
 
+import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
 import ru.netology.entities.RegistrationDto;
 import ru.netology.utils.DataGenerator;
@@ -43,8 +44,12 @@ public class AuthTest {
                 .Authorization
                 .generateInfo("en", "active");
 
+        String invalidLogin = DataGenerator
+                .Authorization
+                .generateInvalidLogin("en");
+
         open("http://localhost:9999/");
-        $("[data-test-id=login] input").setValue("125151245124");
+        $("[data-test-id=login] input").setValue(invalidLogin);
         $("[data-test-id=password] input").setValue(info.getPassword());
         $("[data-test-id=action-login] span").click();
         $(".notification__title").shouldHave(text("Ошибка"));
@@ -57,9 +62,13 @@ public class AuthTest {
                 .Authorization
                 .generateInfo("en", "active");
 
+        String invalidPassword = DataGenerator
+                .Authorization
+                .generateInvalidPassword("en");
+
         open("http://localhost:9999/");
         $("[data-test-id=login] input").setValue(info.getName());
-        $("[data-test-id=password] input").setValue("dfdfgsgdasgqwrq24e2");
+        $("[data-test-id=password] input").setValue(invalidPassword);
         $("[data-test-id=action-login] span").click();
         $(".notification__title").shouldHave(text("Ошибка"));
         $(".notification__content").shouldHave(text("Ошибка! Неверно указан логин или пароль"));

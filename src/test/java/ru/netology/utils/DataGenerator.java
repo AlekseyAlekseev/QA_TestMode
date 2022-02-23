@@ -41,6 +41,18 @@ public class DataGenerator {
                     .statusCode(200); // код 200 OK
             return registrationDto;
         }
+
+        public static String generateInvalidLogin(String locale) {
+            Faker faker = new Faker(new Locale(locale));
+            return faker.name().username();
+        }
+
+        public static String generateInvalidPassword(String locale) {
+            Faker faker = new Faker(new Locale(locale));
+            return faker.internet().password(8, 10, false, false);
+        }
     }
+
+
 
 }
